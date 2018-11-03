@@ -15,9 +15,13 @@
 chrome.runtime.onMessage.addListener(
     function(Message, sender, sendResponse) {
         if(Message.method === "getPrice"){
-            let Item_price = document.getElementById("J_Total").textContent;
-            // let Item_list = document.getElementsByClassName("a-list-item")[0].textContent;
-
+            // let Item_price = document.getElementById("J_Total").textContent;
+            // let Item_list = document.getElementsByClassName("realPay-price")[0].textContent;
+            let Item_price = document.getElementsByClassName("realPay-price")[0].textContent;;
+            // for (var i = 1; i < document.getElementsByClassName("J_ItemSum").length; i++) {
+            //   Item_price += document.getElementsByClassName("J_ItemSum")[1].textContent;
+            // }
+            console.log(Item_price);
             sendResponse({data: [Item_price], method: "getPrice"});
         }
     }
