@@ -26,30 +26,32 @@ function show() {
     }, function(response) {
       if (response.method === "getPrice") {
         console.log(response.data[1]);
-        let item = response.data[1].replace(/\s+/g, "");
+        // let item = response.data[1].replace(/\s+/g, "");
         let price = response.data[0].replace(/\s+/g, "");
-        console.log(item);
-        $.ajax({
-          //  url:"https://deco3801-teambyteme.uqcloud.net/apikey",
-          url:"http://localhost:3000/api/price",
-          type:"POST",
-          data:{
-          itemPrice:price,
-          itemList:item
-          },
-          success:(res)=>{
-            alert ("login!")
-          },
-          error:(err)=>{
-            console.log(err);
-          }
-        })
+
+        // Send data to Web application
+
+        // $.ajax({
+        //   //  url:"https://deco3801-teambyteme.uqcloud.net/apikey",
+        //   url:"http://localhost:3000/api/price",
+        //   type:"POST",
+        //   data:{
+        //   itemPrice:price
+        //   // itemList:item
+        //   },
+        //   success:(res)=>{
+        //     alert ("login!")
+        //   },
+        //   error:(err)=>{
+        //     console.log(err);
+        //   }
+        // })
         new Notification("Hi", {
           icon: "assets/images/logo.png",
-          body: "Are you sure to spend" + price  + "?"
+          body: "Are you sure to spend " + price  + "?"
         });
         chrome.tabs.create({
-          url: "http://localhost:3000"
+          url: "https://www.taobao.com/"
         });
       }
     });
